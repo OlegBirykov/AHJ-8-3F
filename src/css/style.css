@@ -11,11 +11,7 @@ body {
   background-color: white;
   font-family: "Arial", sans-serif;
   font-size: 16px;
-  line-height: 1.4;
-}
-
-a {
-  display: block;
+  line-height: 1.2;
 }
 
 a:hover {
@@ -76,7 +72,15 @@ a:hover {
   overflow: auto;
 }
 
+.instances-widget .instance {
+  margin-bottom: 0.8em;
+  padding: 0.8em;
+  border: 1px solid black;
+  border-radius: 1em;
+}
+
 .instances-widget .new-button {
+  display: block;
   margin-top: 1em;
   text-align: center;
 }
@@ -105,6 +109,15 @@ a:hover {
 }
 
 .log-widget .messages {
-  max-height: calc(500px - 3em);
+  max-height: calc(500px - 4.5em);
   overflow: auto;
+}
+
+.log-widget .message {
+  margin-bottom: 1.5em;
+  font-size: 0.8em;
+}
+
+.log-widget .time {
+  margin-bottom: 0.6em;
 }
