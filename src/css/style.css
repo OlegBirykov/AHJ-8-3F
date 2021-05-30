@@ -1,4 +1,110 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: none;
+  color: black;
+  font: inherit;
+  background-color: transparent;  
+}
+
 body {
-  background: #eee;
+  background-color: white;
+  font-family: "Arial", sans-serif;
+  font-size: 16px;
+  line-height: 1.4;
+}
+
+a {
+  display: block;
+}
+
+a:hover {
+  color: blue;
+}
+
+#container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+
+  overflow: auto;
+}
+
+#container-1 {
+  position: relative;
+  box-sizing: border-box;
+  flex-shrink: 0;
+  width: 400px;
+  height: 500px;
+  margin: 10px 20px;
+  border: 1px solid black;
+  border-radius: 1em;
+}
+
+#container-2 {
+  box-sizing: border-box;
+  flex-shrink: 0;
+  width: 500px;
+  height: 500px;
+  margin: 10px 20px;
+  padding: 1em;
+  border: 1px solid black;
+  border-radius: 1em;
+}
+
+.instances-widget {
+  position: absolute;
+  top: 1em;
+  left: 1em;
+  bottom: 1em;
+  right: 1em;
+}
+
+.instances-widget .title {
+  margin-bottom: 1em;
+}
+
+.instances-widget .instances {
+  max-height: calc(500px - 7em);
+  overflow: auto;
+}
+
+.instances-widget .new-button {
+  margin-top: 1em;
   text-align: center;
+}
+
+.instances-widget .waiting {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 2em;
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.instances-widget .hidden {
+  display: none;
+}
+
+.log-widget .title {
+  margin-bottom: 1em;
+}
+
+.log-widget .messages {
+  max-height: calc(500px - 3em);
+  overflow: auto;
 }
