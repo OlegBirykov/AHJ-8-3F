@@ -79,6 +79,30 @@ a:hover {
   border-radius: 1em;
 }
 
+.instances-widget .instance-id {
+  margin-bottom: 0.6em;
+}
+
+.instances-widget .status {
+  margin-bottom: 0.4em;
+}
+
+.instances-widget .status-indicator {
+  font-size: 1.5em;
+}
+
+.instances-widget .start-stop-button {
+  font-size: 1.5em;
+  font-weight: bold; 
+  text-decoration: none;
+}
+
+.instances-widget .remove-button {
+  font-size: 1.5em;
+  font-weight: bold; 
+  text-decoration: none;
+}
+
 .instances-widget .new-button {
   display: block;
   margin-top: 1em;
@@ -102,6 +126,10 @@ a:hover {
 
 .instances-widget .hidden {
   display: none;
+}
+
+.instances-widget .green {
+  color: rgb(96, 255, 0);
 }
 
 .log-widget .title {

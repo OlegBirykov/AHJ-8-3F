@@ -187,6 +187,8 @@ export default class InstancesWidget {
   redraw() {
     this.instances.innerHTML = '';
     this.instArray.forEach((item) => {
+      const isRunning = item.state === 'running';
+
       const instance = document.createElement('div');
       instance.className = this.classes.instance;
       instance.innerHTML = `
@@ -194,15 +196,27 @@ export default class InstancesWidget {
           ${item.id}
         </p>
         <p class="${this.classes.status}">
-          Status: <span class="${this.classes.statusIndicator}">i</span> <span class="${this.classes.statusText}">Stopped</span>
+          Status:&nbsp;&nbsp;&nbsp;&nbsp;<span class="${this.classes.statusIndicator + (isRunning ? ' green' : '')}">&#x25CF;&nbsp;</span> 
+          <span class="${this.classes.statusText}">${isRunning ? 'Running' : 'Stopped'}</span>
         </p>
         <p class="${this.classes.actions}">
-          Actions: <a href="." class="${this.classes.startStopButton}">ssb</a> <a href="." class="${this.classes.removeButton}">rem</a>
+          Actions:&nbsp;&nbsp;<a href="." class="${this.classes.startStopButton}">${isRunning ? '&#x275A;&#x275A;' : '&#x25B6;'}</a> 
+          <a href="." class="${this.classes.removeButton}">&nbsp;&#x2716;</a>
         </p>
       `;
 
       const id = instance.querySelector(`.${this.classes.id}`);
+      const startStopButton = instance.querySelector(`.${this.classes.startStopButton}`);
       const removeButton = instance.querySelector(`.${this.classes.removeButton}`);
+
+      startStopButton.addEventListener('click', (evt) => {
+        evt.preventDefault();
+        this.setWaiting();
+        this.send({
+          event: isRunning ? 'stop' : 'start',
+          id: id.innerText,
+        });
+      });
 
       removeButton.addEventListener('click', (evt) => {
         evt.preventDefault();
